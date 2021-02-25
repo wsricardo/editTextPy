@@ -111,23 +111,7 @@ class Interface:
                 
                 self.texto = Text(self.frame, wrap= WORD,font = self.nomeFont,yscrollcommand=self.sc_b.set)#,yscrollcommand=s.set)
                 self.sc_b.config(command=self.texto.yview)              
-                #Tratando caracteres esperanto.
-                self.texto.bind(("<KeyPress-Alt_L>","<KeyPress-x>","<KeyPress-G>"),self.tecla_pressionadaEOg)
-                self.texto.bind(("<KeyPress-Alt_L>","<KeyPress-x>","<KeyPress-c>"),self.tecla_pressionadaEOc)
-                self.texto.bind(("<KeyPress-Alt_L>","<KeyPress-x>","<KeyPress-s>"),self.tecla_pressionadaEOs)
-                self.texto.bind(("<KeyPress-Alt_L>","<KeyPress-x>","<KeyPress-h>"),self.tecla_pressionadaEOh)
-                self.texto.bind(("<KeyPress-Alt_L>","<KeyPress-x>","<KeyPress-j>"),self.tecla_pressionadaEOj)
-                self.texto.bind(("<KeyPress-Alt_L>","<KeyPress-x>","<KeyPress-u>"),self.tecla_pressionadaEOu)
-                #MAIUSCULAS
-                self.texto.bind(("<KeyPress-Alt_L>","<KeyPress-Control_L>","<KeyPress-x>","<KeyPress-g>"),self.tecla_pressionadaEOG)
-                self.texto.bind(("<KeyPress-Alt_L>","<KeyPress-Control_L>","<KeyPress-x>","<KeyPress-c>"),self.tecla_pressionadaEOC)
-                self.texto.bind(("<KeyPress-Alt_L>","<KeyPress-Control_L>","<KeyPress-x>","<KeyPress-s>"),self.tecla_pressionadaEOS)
-                self.texto.bind(("<KeyPress-Alt_L>","<KeyPress-Control_L>","<KeyPress-x>","<KeyPress-h>"),self.tecla_pressionadaEOH)
-                self.texto.bind(("<KeyPress-Alt_L>","<KeyPress-Control_L>","<KeyPress-x>","<KeyPress-j>"),self.tecla_pressionadaEOJ)
-                self.texto.bind(("<KeyPress-Alt_L>","<KeyPress-Control_L>","<KeyPress-x>","<KeyPress-u>"),self.tecla_pressionadaEOU)
-                self.texto.bind(("<KeyPress-Control_L>","<KeyPress-space>"),self.control_id)
-                #----------------------------------------------------------------------
-                #self.texto.bind(("<KeyPress-Alt_L>","<KeyPress-x>","<KeyPress-g>"),self.tecla_pressionadaEOg)
+                
                 self.texto.bind(("<KeyPress-Shift_L>"),self.teclaShift_pressionada)
                 #Atalhos
                 self.texto.bind(("<KeyPress-Control_L>","<KeyPress-n>"),self.novoA)
@@ -162,60 +146,7 @@ class Interface:
         def tecla_Pressionada(self,event):
                 arquivo_salvo = 0
                 pass
-        #Caracteres esperanto
-        def tecla_pressionadaEOg(self,event):
-                self.texto.insert(END,u'ĝ')
-                
-                pass
-        def tecla_pressionadaEOc(self,event):
-                self.texto.insert(END,u'ĉ')
-                
-                pass
-        def tecla_pressionadaEOs(self,event):
-                self.texto.insert(END,u'ŝ')
-                
-                pass
-        def tecla_pressionadaEOh(self,event):
-                self.texto.insert(END,u'ĥ')
-                
-                pass
-        def tecla_pressionadaEOj(self,event):
-                self.texto.insert(END,u'ĵ')
-                
-                pass
-        def tecla_pressionadaEOu(self,event):
-                self.texto.insert(END,u'ŭ')
-                
-                pass    
         
-        def tecla_pressionadaEOG(self,event):
-                self.texto.insert(END,u'Ĝ')
-                
-                pass
-        def tecla_pressionadaEOC(self,event):
-                self.texto.insert(END,u'Ĉ')
-                
-                pass
-        def tecla_pressionadaEOS(self,event):
-                self.texto.insert(END,u'Ŝ')
-                
-                pass
-        def tecla_pressionadaEOH(self,event):
-                self.texto.insert(END,u'Ĥ')
-                
-                pass
-        def tecla_pressionadaEOJ(self,event):
-                self.texto.insert(END,u'Ĵ')
-                
-                pass
-        def tecla_pressionadaEOU(self,event):
-                self.texto.insert(END,u'Ŭ')
-                
-                pass
-        
-
-        #Esperanto--------------------------------------------------------------------------------
-                
         #Evento para atalhos.----------
         def novoA(self,event):
                 self.novo_arquivo()
@@ -296,35 +227,7 @@ class Interface:
                        
         #---------------------------------------------------------------------------------
                         
-        #Chamada a leitor do texto em voz alta.-------------------------------------------
-        def falar_Texto (self) :
-                entrada = '"'+self.fileName+'"'
-                if self.arquivo_salvo:
-                        #Para alterar voz e idioma so seguir a documentação do espeak.
-                        #Alterar idioma e voz nesta linha abaixo.
-                        os.system('echo  |  espeak -f %s -vpt+f2' %entrada)
-                else:
-                        print "Save file. Salve arquivo"
-                # returns 
-                pass
         
-        #Ler texto e gravar o aúdio da leitura
-        def grava_Leitura(self):
-                self.i = self.i+1
-                name = "output"+str(self.i) 
-                entrada = '"'+self.fileName+'"'
-                print "entrada",entrada
-                #print"entrada", entrada
-                #Correções: Selecionar nome para arquivo audio gerado. 
-                #Acrescentar recursso para escolha do idioma.
-                os.system('echo | espeak -f "%s"'%entrada +' -w " %s.wav" -vpt+f2 '   %name)
-                pass
-                
-        def salvar_audio_Texto(self,texto) :
-                # returns 
-                pass
-        #---------------------------------------------------------------------------------
-
         def sair(self) :
                 #if len(self.texto.get(1.0,END))>1:
                 if self.arquivo_salvo==0:
@@ -373,8 +276,8 @@ class Interface:
                 pass
         def obterFonte(self,fonte):
                 self.fonte = fonte
-                self.nomeFont = self.fonte.getFonte()
-                self.sizeFont = self.fonte.getSizeFonte()
+                self.nomeFont = self.fonte.getFont()
+                self.sizeFont = self.fonte.getSizeFont()
 
                 pass    
 #---------------------------------------------------------------------------------------------------------
