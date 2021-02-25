@@ -16,7 +16,7 @@ import Tix
 #Implementa janela para pesquisa.
 #class pesquisa:
         #def __init():
-
+        
 #Classe para configurar fonte para o texto.-------------------------------
 class windowFonteConfig:
         conf=0
@@ -214,7 +214,7 @@ class Interface:
                 pass
         
 
-        #Esperanto--------------------------------------------------------------------------------              
+        #Esperanto--------------------------------------------------------------------------------
                 
         #Evento para atalhos.----------
         def novoA(self,event):
@@ -434,14 +434,8 @@ class Ajuda:
                 
                 self.info = Label(self.frameAjuda,  text="Programa criado por Wandeson R.")
                 self.info.pack()
-                self.info2 = Label(self.frameAjuda2,text="Necessita de programa \n para sintese de voz instalado,\nde preferencia Espeak.")
+                self.info2 = Label(self.frameAjuda2,text="Editor de texto simples EdiTextPy.\nhttps://wsricardo.blogspot.com")
                 self.info2.pack()
-                self.esperantocaract = Label(self.frameAjuda2, text="""
-                Esperanto
-                ŝ/ĝ/ĉ/ĵ/ĥ/ŭ = alt_left+x+s/g/c/j/h/u
-                Ŝ/Ĝ/Ĉ/Ĵ/Ĥ/Ŭ = alt_Left+Control_Left+x+s/g/c/j/h/u                       
-                """)
-                self.esperantocaract.pack()
                 
                 # returns 
                 pass
@@ -458,5 +452,5 @@ class Ajuda:
 #Cria a janela Tk, com Interface.
 raiz = Tk()
 Interface(raiz)
-raiz.title("EdTeksto")
+raiz.title("EditTextPy")
 raiz.mainloop()
