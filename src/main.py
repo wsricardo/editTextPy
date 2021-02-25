@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 #Autor: Wandeson Ricardo
-#www.kartunoderikardo.blogspot.com/
+#www.wsricardo.blogspot.com/
 #Data: 09/2009
 #Notas: Implementar recurso para escolha de fonte. -> class windowFonteConfig
 #Implementar novo recurso para inserir caracteres
