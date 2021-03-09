@@ -229,7 +229,7 @@ class Interface:
         
         def sair(self) :
                 #if len(self.texto.get(1.0,END))>1:
-                if self.arquivo_salvo==0:
+                if self.arquivo_salvo==0 and len(self.texto.get(1.0,END))>1:
                         self.fechar_arquivo = 1
                         self.salvar_como_Texto()
                         sys.exit()
