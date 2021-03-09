@@ -1,18 +1,17 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-#Autor: Wandeson Ricardo
-#www.wsricardo.blogspot.com/
-#Data: 09/2009
-#Notas: Implementar recurso para escolha de fonte. -> class windowFonteConfig
-#Implementar novo recurso para inserir caracteres
-#de esperanto(metodo do x, gx =　ĝ) -> class Interface.
+# Autor: Wandeson Ricardo
+# www.wsricardo.blogspot.com/
+# Data: 09/2009
+# Notas: Implementar recurso para escolha de fonte. -> class windowFonteConfig
+
 import os, sys
 import codecs
-from Tkinter import*
-import Tkinter
-import tkFont
-from FileDialog import*
-import Tix
+from tkinter import*
+import tkinter
+import tkinter.font as tkFont
+from tkinter.filedialog import*
+from tkinter import tix
 #Implementa janela para pesquisa.
 #class pesquisa:
         #def __init():
@@ -61,12 +60,12 @@ class windowFonteConfig:
         #Configura atributos da fonte.-------------------------
         def confFonte(self,conf):
                 self.conf = conf
-                print "conf run..."
+                print("conf run...")
                 if conf:
-                        print "1"
+                        print("1")
 
                 else:
-                        print "0"
+                        print("0")
                         
                 pass
         def getFonte(self,font):
@@ -140,7 +139,7 @@ class Interface:
                 # returns 
                 pass
         def control_id(self,event):
-                print "Control e Space pressionados"
+                print("Control e Space pressionados")
                 os.system('echo control space')
                 return "Break"
         def tecla_Pressionada(self,event):
@@ -242,7 +241,7 @@ class Interface:
         #Menu edit, editar. Recurso a ser implementado. Implementar recurso para selecionar todo texto. Falta implementar recurso para refazer e desfazer.
         #----------------------------------------------------------------------------------------------------------------------
         def desfazer(self):
-                print 'desfazer'
+                print('desfazer')
                 pass
         def refazer(self):
                 
@@ -335,7 +334,7 @@ class Ajuda:
                 self.frameAjuda2 = Frame(janelaAjuda)
                 self.frameAjuda2.pack()
                 
-                self.info = Label(self.frameAjuda,  text="Programa criado por Wandeson R.")
+                self.info = Label(self.frameAjuda,  text="Programa criado por Wandeson R.\n\n")
                 self.info.pack()
                 self.info2 = Label(self.frameAjuda2,text="Editor de texto simples EdiTextPy.\nhttps://wsricardo.blogspot.com")
                 self.info2.pack()
